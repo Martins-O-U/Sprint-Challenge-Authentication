@@ -11,7 +11,7 @@ const Login = props => {
 
     const UserSubmit = (event, loginInfo) => {
         event.preventDefault();
-        axios.post("http://localhost:4500/api/login", loginInfo)
+        axios.post("http://localhost:3300/api/auth/login", loginInfo)
             .then(res => {
                 localStorage.setItem("token", res.data.token)
                 props.history.push("/users")
