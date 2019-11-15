@@ -1,11 +1,20 @@
 const router = require('express').Router();
 
-router.post('/register', (req, res) => {
-  // implement registration
-});
+const db = require('./auth-router-helper')
+const bcrypt = require('bcryptjs')
 
-router.post('/login', (req, res) => {
-  // implement login
-});
+router.post("/register", (req, res) => {
+  let user = req.body;
+  const hash = bcrypt.hashSync(user.password, 10);
+  user.password = hash;
+
+  db.addUser(user)
+      .then(saved => {
+          res.status(201).json(saved)
+      })
+      .catch(error => {
+          res.status(500).json(error.message);
+      })
+})
 
 module.exports = router;

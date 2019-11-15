@@ -6,7 +6,13 @@ const jwt = require("jsonwebtoken");
   before granting access to the next middleware/route handler
 */
 
-module.exports = (req, res, next) => {
+module.exports = {
+  authenticate,
+  generateToken
+}
+
+
+function authenticate (req, res, next) {
   const secret = process.env.JWT_SECRET || "A secret lives here";
   const token = req.headers.authorization;
   if (token) {
@@ -21,4 +27,5 @@ module.exports = (req, res, next) => {
   } else {
     res.status(401).json({ you: 'shall not pass!' });
   }
-};
+}
+
