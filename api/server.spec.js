@@ -1,7 +1,5 @@
 const request = require('supertest')
 const server = require('./server')
-const Users = require('../auth/auth-router-helper')
-const db = require('../database/dbConfig')
 
 describe('server', () => {
   describe('[GET] / endpoint testing', () => {
@@ -34,18 +32,39 @@ describe("jokes router", () => {
   })
 })
 
+//Remember to change the username after each Post/register test,
+//because in the database the username is unique thus cannot be used more than once
 
-describe('POST /users', function() {
+describe('POST /register', function() {
   it('responds with json', function(done) {
     request(server)
       .post('/api/auth/register')
       .send({
-        "username": "JohnyD",
+        "username": "John Doe",
         "password":"Anytime"
       })
       .set('Accept', 'application/json')
       .expect('Content-Type', "application/json; charset=utf-8")
       .expect(201)
+      .end(function(err, res) {
+        if (err) return done(err);
+        done();
+      });
+  });
+});
+
+
+describe('POST /login', function() {
+  it('responds with json', function(done) {
+    request(server)
+      .post('/api/auth/login')
+      .send({
+        "username": "JohnyD",
+        // "password":"Anytime"
+      })
+      .set('Accept', 'application/json')
+      .expect('Content-Type', "application/json; charset=utf-8")
+      .expect(500)
       .end(function(err, res) {
         if (err) return done(err);
         done();
