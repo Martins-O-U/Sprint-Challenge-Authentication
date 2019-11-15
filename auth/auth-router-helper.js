@@ -3,10 +3,14 @@ const db =require('../database/dbConfig')
 module.exports ={
     getUserById,
     getUsersBY,
-    addUser
+    addUser,
+    getUsers
 }
 
-
+function getUsers() {
+    return db("users")
+        .select("users.id", "users.username")
+}
 
 function getUserById(id){
     return db('users').where({id}).first()

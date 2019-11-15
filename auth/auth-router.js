@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {generateToken} = require('./authenticate-middleware')
 const db = require('./auth-router-helper')
 const bcrypt = require('bcryptjs')
+const {authenticate} = require('./authenticate-middleware')
 
 router.post("/register", (req, res) => {
   let user = req.body;
@@ -39,6 +40,16 @@ router.post("/login", (req, res) => {
       })
   }
 
+})
+
+router.get("/users", authenticate, (req, res) => {
+  db.getUsers()
+      .then(users => {
+          res.status(200).json(users)
+      })
+      .catch(error => {
+          res.status(500).json({ message: "Oops!, Something went wrong. " + error.message})
+      })
 })
 
 module.exports = router;
