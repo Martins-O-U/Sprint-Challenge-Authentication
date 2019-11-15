@@ -1,0 +1,75 @@
+.App {
+  max-width: 1000px;
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 3%;
+  text-align: center;
+  background: #FFFAF0;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.jokesdisplay{
+  background: #ffdab9;
+  padding: 5px;
+  margin: 10px;
+}
+
+.intro{
+  margin-top: 5%;
+  text-shadow: 1px 1px 1px lightblue, 
+  3px 3px 5px darkgray;
+}
+form {
+  padding-top: 2%;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+  0 2px 4px rgba(0, 0, 0, 0.24);
+  margin: 10% 10% 20% 10%;
+  border-bottom: 2px solid black;
+  padding-bottom: 5%;
+}
+
+input{
+  width: 30%;
+  margin: 3px;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+a{
+  text-decoration: none;
+  margin: 0px 5px;
+  color: black
+}
+
+a:hover{
+  font-size: 18;
+  color: dodgerblue;
+}
+
+.button-submit{
+  width: 15%;
+  margin-top: 3px;
+  margin-bottom: 2%;
+  border-radius: 5px;
+  padding: 5px 7px;
+  background: LightBlue ;
+ }
+ 
+ .button-submit:hover{
+   background: dodgerblue;
+ 
+ }
+ .jokesdiv{
+   margin: 5% 10%;
+   padding-bottom: 5%;
+ }
+
+ .home {
+   margin: 20% 15%;
+   padding: 5%;
+   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+   0 2px 4px rgba(0, 0, 0, 0.24);
+ }
