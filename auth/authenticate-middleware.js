@@ -29,3 +29,17 @@ function authenticate (req, res, next) {
   }
 }
 
+function generateToken(user) {
+  const payload = {
+    subject: user.id,
+    username: user.username,
+    department: user.department
+  };
+  const secret = process.env.JWT_SECRET || "A secret lives here";
+  const options = {
+    expiresIn: "1d"
+  };
+  const result = jwt.sign(payload, secret, options);
+  return result;
+}
+
