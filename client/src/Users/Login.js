@@ -14,7 +14,7 @@ const Login = props => {
         axios.post("http://localhost:3300/api/auth/login", loginInfo)
             .then(res => {
                 localStorage.setItem("token", res.data.token)
-                props.history.push("/users")
+                props.history.push("/jokes")
             })
             .catch(error => {
                 console.log("Something went wrong", + error.message)

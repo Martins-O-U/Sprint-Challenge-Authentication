@@ -9,7 +9,6 @@ const Jokes = () => {
         axiosWithAuth().get("http://localhost:3300/api/jokes")
             .then(res => {
                 setJokeList(res.data)
-                console.log(res.data)
             })
             .catch(error => {
                 console.log(error)
